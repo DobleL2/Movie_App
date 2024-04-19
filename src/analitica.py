@@ -15,3 +15,9 @@ def top_10_year(year):
     base_filtrada_year = base[base['Year']==year]
     
     return base_filtrada_year.sort_values(by='Ranking',ascending=False)[:10][['Title','Age']].reset_index(drop=True)
+
+def plataforma(year):
+    base = datos.leer_datos()
+    base_filtrada_year = base[base['Year']==year]
+    
+    return base_filtrada_year[['Netflix','Hulu','Prime Video','Disney+']].sum()
